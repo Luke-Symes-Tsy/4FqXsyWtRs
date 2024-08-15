@@ -32,15 +32,6 @@ jobs:
             sessioninfo
           cache-version: ${{ github.event.inputs.cache-version }}
 
-      - name: Find package dependencies
-        shell: Rscript {0}
-        id: packages
-        run: |
-          # Find package dependencies using {renv} and install with {pak}
-          pak::pak(
-            unique(renv::dependencies(".")$Package)
-          )
-
       - name: Build site
         shell: Rscript {0}
         run: |
