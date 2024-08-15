@@ -27,8 +27,7 @@ jobs:
       - uses: rstudio/shiny-workflows/setup-r-package@v1
         with:
           packages: |
-            renv
-            posit-dev/r-shinylive
+            shinylive
             sessioninfo
           cache-version: ${{ github.event.inputs.cache-version }}
 
@@ -38,7 +37,7 @@ jobs:
           shinylive::export(
             ".", "site", wasm_packages = FALSE, package_cache = FALSE,
             template_params = list(title = "IncomeExplorer",
-            include_in_head = "<link rel="shortcut icon" href="favicon.ico" />")
+            include_in_head = '<link rel="shortcut icon" href="favicon.ico" />')
           )
 
       - name: Upload site artifact
