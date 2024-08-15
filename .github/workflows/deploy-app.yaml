@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
   # Trigger on push to `main` branch
   push:
-    branches: ["main"]
+    branches: ["master"]
   # Trigger on pull request to all branches (but do not deploy to gh-pages)
   pull_request:
 
@@ -38,7 +38,7 @@ jobs:
           shinylive::export(
             ".", "site", wasm_packages = FALSE, package_cache = FALSE,
             template_params = list(title = "IncomeExplorer",
-            include_in_head = tags$link(rel = "shortcut icon", href = "favicon.ico"))
+            include_in_head = "<link rel="shortcut icon" href="favicon.ico" />")
           )
 
       - name: Upload site artifact
