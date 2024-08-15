@@ -39,6 +39,11 @@ jobs:
             template_params = list(title = "IncomeExplorer",
             include_in_head = '<link rel="shortcut icon" href="favicon.ico" />')
           )
+          
+      - name: Copy favicon to site
+        shell: Rscript {0}
+        run: |
+          file.copy("www/favicon.ico", "site/favicon.ico")
 
       - name: Upload site artifact
         if: github.ref == 'refs/heads/master'
