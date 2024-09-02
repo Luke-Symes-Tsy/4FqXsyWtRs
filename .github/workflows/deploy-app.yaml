@@ -31,6 +31,12 @@ jobs:
             sessioninfo
           cache-version: ${{ github.event.inputs.cache-version }}
 
+      - name: Install dev shinylive
+        shell: Rscript {0}
+        run: |
+          install.packages("pak")
+          pak::pak("posit-dev/r-shinylive")
+      
       - name: Build site
         shell: Rscript {0}
         run: |
