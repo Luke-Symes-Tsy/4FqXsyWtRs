@@ -35,7 +35,7 @@ jobs:
         shell: Rscript {0}
         run: |
           shinylive::export(
-            ".", "site", wasm_packages = FALSE, package_cache = FALSE,
+            ".", "site", wasm_packages = TRUE, package_cache = TRUE,
             template_params = list(title = "IncomeExplorer",
             include_in_head = '<link rel="shortcut icon" href="favicon.ico" />')
           )
